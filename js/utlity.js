@@ -28,3 +28,9 @@ function selectAlphabetColor(elementId){
     color.classList.add('bg-orange-400')
 
 }
+function removeColor (elementId){
+    const color =document.getElementById(elementId);
+    color.classList.remove('bg-orange-400')
+
+
+}
