@@ -18,23 +18,47 @@
     const current=currentAlphabet.toLowerCase()
     if(userPressed===current){
         console.log('yes,matching bro');
+        // using common function use 
+        const currentValue=getTextElementById("current-score");
+        const updatedValue= currentValue + 1;
+        setValueById('current-score', updatedValue)
+      
+
+        
+
+
           // score update 
-          const currentScoreElement=document.getElementById("current-score");
-          const currentScore= parseInt(currentScoreElement.innerText);
-          const currentScores=currentScore + 1;
-          currentScoreElement.innerText=currentScores;
+        //   const currentScoreElement=document.getElementById("current-score");
+        //   const currentScore= parseInt(currentScoreElement.innerText);
+        //   const currentScores=currentScore + 1;
+        //   currentScoreElement.innerText=currentScores;
         removeColor(userPressed)
         continueGame()
       
        
     }
     else{
+        // using function ///
+        const currentLife=getTextElementById("current-life");
+        const updateLife= currentLife -1;
+        setValueById('current-life',updateLife)
+        if(updateLife===0){
+            hideElementById("play-ground")
+            showElementById("final-score")
+        }
+
+
+           
+
+
+
+
         // console.log('oh no,,, sorry');
-        const currentLifeElement=document.getElementById("current-life");
-        const currentLife=parseInt(currentLifeElement.innerText)
-        // console.log(currentLife);
-        const newLife=currentLife -1;
-        currentLifeElement.innerText=newLife;
+        // const currentLifeElement=document.getElementById("current-life");
+        // const currentLife=parseInt(currentLifeElement.innerText)
+        // // console.log(currentLife);
+        // const newLife=currentLife -1;
+        // currentLifeElement.innerText=newLife;
        
     }
  }
@@ -53,8 +77,14 @@ function continueGame(){
 
 }
 function play (){
+    // hide and show //
     hideElementById('home-screen')
+    hideElementById('final-score')
     showElementById('play-ground')
+    //  reset life and score 
+    setValueById('current-life',5)
+
+    setValueById('current-score',0)
     
     continueGame()
 }

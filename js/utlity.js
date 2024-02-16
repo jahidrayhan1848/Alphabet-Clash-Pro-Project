@@ -34,3 +34,16 @@ function removeColor (elementId){
 
 
 }
+function getTextElementById(elementId){
+    const elementById=document.getElementById(elementId);
+    const currentValue=parseInt(elementById.innerText);
+    return currentValue;
+
+
+}
+function setValueById(elementId,value){
+    const setValue=document.getElementById(elementId);
+    setValue.innerText=value;
+
+
+}
